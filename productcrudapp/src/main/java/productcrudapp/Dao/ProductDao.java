@@ -19,7 +19,7 @@ public class ProductDao {
 	@Transactional
 	//annotaion for write operation - create and update methods
 	public void createProduct(Product product) {
-		this.hibernateTemplate.save(product);
+		this.hibernateTemplate.saveOrUpdate(product);
 	}
 
 	//get all product

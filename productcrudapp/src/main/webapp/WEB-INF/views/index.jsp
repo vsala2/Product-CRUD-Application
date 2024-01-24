@@ -12,16 +12,16 @@
 
 	<body>
 		
-		<div class="container mt-3">
+		<div class="container mt-2">
 	
 			<div class="row">
 				<div class="col-md-12">
 					<h1 class="text-center mb-3">Welcome to Product App!</h1>
 					
-					<table class="table table-striped table-dark">
-					  <thead>
+					<table class="table">
+					  <thead class="thead-dark">
 					    <tr>
-					      <th scope="col">Sr. No</th>
+					      <th scope="col">ID</th>
 					      <th scope="col">Product Name</th>
 					      <th scope="col">Description</th>
 					      <th scope="col">Price</th>
@@ -29,12 +29,19 @@
 					    </tr>
 					  </thead>
 					  <tbody>
-					    <tr>
-					      <th scope="row">1</th>
-					      <td>Mark</td>
-					      <td>Otto</td>
-					      <td>@mdo</td>
-					    </tr>
+					  
+					  	<c:forEach items="${ products }" var="p">
+						  	<tr>
+						      <th scope="row">${p.pid }</th>
+						      <td>${p.name }</td>
+						      <td>${p.description }</td>
+						      <td class="font-weight-bold"> &dollar; ${p.price }</td>
+						      <td>
+						      <a href="delete/${p.pid }"><i class="fas fa-trash text-danger" style="font-size: 20px;"></i></a>
+						      <a href="update/${p.pid }"><i class="fas fa-pen-nib text-primary" style="font-size: 20px;"></i></a>
+						      </td>
+						    </tr>
+					  	</c:forEach>
 
 					  </tbody>
 					</table>
